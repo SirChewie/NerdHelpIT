@@ -26,6 +26,7 @@ func home_handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
+
 func contact_handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, "<h1>Contact Page</h1><p>Contact us at <a href=\"mailto:jblalock@nerdhelpit.com\">jblalock@nerdhelpit.com</a>.")

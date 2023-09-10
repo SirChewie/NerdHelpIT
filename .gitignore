@@ -7,7 +7,7 @@
 *.o
 *.so
 *.bin
-*NerdHelpIT.exe
+*NerdHelpIT.exe~
 
 # Packages #
 ############
