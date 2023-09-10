@@ -41,11 +41,17 @@ func faq_handler(w http.ResponseWriter, r *http.Request) {
 	execute_template(w, tplPath)
 }
 
+func support_handler(w http.ResponseWriter, r *http.Request) {
+	tplPath := filepath.Join("templates", "support.gohtml")
+	execute_template(w, tplPath)
+}
+
 func main() {
 	r := chi.NewRouter()
 	r.Get("/", home_handler)
 	r.Get("/contact", contact_handler)
 	r.Get("/faq", faq_handler)
+	r.Get("/support", support_handler)
 	fmt.Println("Starting server on :3000")
 	http.ListenAndServe(":3000", r)
 }
