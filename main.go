@@ -20,11 +20,6 @@ func faq_handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, "<h1>FAQ Page</h1>")
 }
-func not_found_handler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	http.NotFound(w, r)
-
-}
 
 func main() {
 	r := chi.NewRouter()
