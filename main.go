@@ -20,16 +20,6 @@ func execute_template(w http.ResponseWriter, filepath string) {
 	t.Execute(w, nil)
 }
 
-func home_handler(w http.ResponseWriter, r *http.Request) {
-	tplPath := filepath.Join("templates", "home.gohtml")
-	execute_template(w, tplPath)
-}
-
-func contact_handler(w http.ResponseWriter, r *http.Request) {
-	tplPath := filepath.Join("templates", "contact.gohtml")
-	execute_template(w, tplPath)
-}
-
 func faq_handler(w http.ResponseWriter, r *http.Request) {
 	tplPath := filepath.Join("templates", "faq.gohtml")
 	execute_template(w, tplPath)
@@ -42,10 +32,38 @@ func support_handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := chi.NewRouter()
-	r.Get("/", home_handler)
-	r.Get("/contact", contact_handler)
-	r.Get("/faq", faq_handler)
-	r.Get("/support", support_handler)
+
+	tpl, err := views.ParseTemplate(filepath.Join("templates", "home.gohtml"))
+	if err != nil {
+		log.Printf("parsing template: %v", err)
+		return
+	}
+
+	r.Get("/", controllers.static_handler(tpl))
+
+	tpl, err = views.ParseTemplate(filepath.Join("templates", "contact.gohtml"))
+	if err != nil {
+		log.Printf("parsing template: %v", err)
+		return
+	}
+	r.Get("/contact", controllers.static_handler(tpl))
+
+	tpl, err = views.ParseTemplate(filepath.Join("templates", "faq.gohtml"))
+	if err != nil {
+		log.Printf("parsing template: %v", err)
+		return
+	}
+
+	r.Get("/faq", controllers.static_handler(tpl))
+
+	tpl, err = views.ParseTemplate(filepath.Join("templates", "support.gohtml"))
+	if err != nil {
+		log.Printf("parsing template: %v", err)
+		return
+	}
+
+	r.Get("/support", controllers.static_handler(tpl))
 	fmt.Println("Starting server on :3000")
+
 	http.ListenAndServe(":3000", r)
 }
