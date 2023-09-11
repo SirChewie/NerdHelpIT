@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"path/filepath"
 
 	"github.com/SirChewie/NerdHelpIT/controllers"
+	"github.com/SirChewie/NerdHelpIT/templates"
 	"github.com/SirChewie/NerdHelpIT/views"
 	"github.com/go-chi/chi/v5"
 )
@@ -14,7 +14,7 @@ import (
 func main() {
 	r := chi.NewRouter()
 
-	tpl, err := views.ParseTemplate(filepath.Join("templates", "home.gohtml"))
+	tpl, err := views.ParseFS(templates.FS, "home.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
@@ -22,7 +22,7 @@ func main() {
 
 	r.Get("/", controllers.StaticHandler(tpl))
 
-	tpl, err = views.ParseTemplate(filepath.Join("templates", "contact.gohtml"))
+	tpl, err = views.ParseFS(templates.FS, "contact.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
@@ -30,7 +30,7 @@ func main() {
 
 	r.Get("/contact", controllers.StaticHandler(tpl))
 
-	tpl, err = views.ParseTemplate(filepath.Join("templates", "faq.gohtml"))
+	tpl, err = views.ParseFS(templates.FS, "faq.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
@@ -38,7 +38,7 @@ func main() {
 
 	r.Get("/faq", controllers.StaticHandler(tpl))
 
-	tpl, err = views.ParseTemplate(filepath.Join("templates", "support.gohtml"))
+	tpl, err = views.ParseFS(templates.FS, "support.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
@@ -46,7 +46,7 @@ func main() {
 
 	r.Get("/support", controllers.StaticHandler(tpl))
 
-	tpl, err = views.ParseTemplate(filepath.Join("templates", "about.gohtml"))
+	tpl, err = views.ParseFS(templates.FS, "about.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
