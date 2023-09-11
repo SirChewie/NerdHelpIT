@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"path/filepath"
 
+	"github.com/SirChewie/NerdHelpIT/controllers"
 	"github.com/SirChewie/NerdHelpIT/views"
 	"github.com/go-chi/chi/v5"
 )
@@ -19,14 +20,14 @@ func main() {
 		return
 	}
 
-	r.Get("/", controllers.static_handler(tpl))
+	r.Get("/", controllers.StaticHandler(tpl))
 
 	tpl, err = views.ParseTemplate(filepath.Join("templates", "contact.gohtml"))
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-	r.Get("/contact", controllers.static_handler(tpl))
+	r.Get("/contact", controllers.StaticHandler(tpl))
 
 	tpl, err = views.ParseTemplate(filepath.Join("templates", "faq.gohtml"))
 	if err != nil {
@@ -34,7 +35,7 @@ func main() {
 		return
 	}
 
-	r.Get("/faq", controllers.static_handler(tpl))
+	r.Get("/faq", controllers.StaticHandler(tpl))
 
 	tpl, err = views.ParseTemplate(filepath.Join("templates", "support.gohtml"))
 	if err != nil {
@@ -42,7 +43,7 @@ func main() {
 		return
 	}
 
-	r.Get("/support", controllers.static_handler(tpl))
+	r.Get("/support", controllers.StaticHandler(tpl))
 
 	fmt.Println("Starting server on :3000")
 	http.ListenAndServe(":3000", r)
