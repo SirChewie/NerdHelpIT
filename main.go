@@ -10,26 +10,6 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-func execute_template(w http.ResponseWriter, filepath string) {
-	t, err := views.ParseTemplate(filepath)
-	if err != nil {
-		log.Printf("parsing template: %v", err)
-		http.Error(w, "There was an error parsing the template", http.StatusInternalServerError)
-		return
-	}
-	t.Execute(w, nil)
-}
-
-func faq_handler(w http.ResponseWriter, r *http.Request) {
-	tplPath := filepath.Join("templates", "faq.gohtml")
-	execute_template(w, tplPath)
-}
-
-func support_handler(w http.ResponseWriter, r *http.Request) {
-	tplPath := filepath.Join("templates", "support.gohtml")
-	execute_template(w, tplPath)
-}
-
 func main() {
 	r := chi.NewRouter()
 
@@ -63,7 +43,7 @@ func main() {
 	}
 
 	r.Get("/support", controllers.static_handler(tpl))
-	fmt.Println("Starting server on :3000")
 
+	fmt.Println("Starting server on :3000")
 	http.ListenAndServe(":3000", r)
 }
