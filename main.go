@@ -14,7 +14,7 @@ import (
 func main() {
 	r := chi.NewRouter()
 
-	tpl, err := views.ParseFS(templates.FS, "home.gohtml")
+	tpl, err := views.ParseFS(templates.FS, "layout-page.gohtml", "home.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
