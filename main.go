@@ -14,6 +14,7 @@ import (
 func main() {
 	r := chi.NewRouter()
 
+	// Render the layout page then render the content page.
 	tpl, err := views.ParseFS(templates.FS, "layout-page.gohtml", "home.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
@@ -22,7 +23,7 @@ func main() {
 
 	r.Get("/", controllers.StaticHandler(tpl))
 
-	tpl, err = views.ParseFS(templates.FS, "contact.gohtml")
+	tpl, err = views.ParseFS(templates.FS, "layout-page.gohtml", "contact.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
@@ -30,7 +31,7 @@ func main() {
 
 	r.Get("/contact", controllers.StaticHandler(tpl))
 
-	tpl, err = views.ParseFS(templates.FS, "faq.gohtml")
+	tpl, err = views.ParseFS(templates.FS, "layout-page.gohtml", "faq.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
@@ -38,7 +39,7 @@ func main() {
 
 	r.Get("/faq", controllers.FAQ(tpl))
 
-	tpl, err = views.ParseFS(templates.FS, "support.gohtml")
+	tpl, err = views.ParseFS(templates.FS, "layout-page.gohtml", "support.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
@@ -46,7 +47,7 @@ func main() {
 
 	r.Get("/support", controllers.StaticHandler(tpl))
 
-	tpl, err = views.ParseFS(templates.FS, "about.gohtml")
+	tpl, err = views.ParseFS(templates.FS, "layout-page.gohtml", "about.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
