@@ -36,7 +36,7 @@ func main() {
 		return
 	}
 
-	r.Get("/faq", controllers.StaticHandler(tpl))
+	r.Get("/faq", controllers.FAQ(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "support.gohtml")
 	if err != nil {
