@@ -8,6 +8,8 @@
 *.so
 *.bin
 *NerdHelpIT.exe~
+# Ignored durring development #
+###############################
 
 # Packages #
 ############
