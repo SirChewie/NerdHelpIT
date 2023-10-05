@@ -55,6 +55,9 @@ func main() {
 
 	r.Get("/about", controllers.StaticHandler(tpl))
 
+	assetsHandler := http.FileServer(http.Dir("assets"))
+	r.Get("/assets/*", http.StripPrefix("/assets", assetsHandler).ServeHTTP)
+
 	fmt.Println("Starting server on :3000")
 	http.ListenAndServe(":3000", r)
 }

@@ -3,11 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="/assets/styles.css" rel="stylesheet">
     </head>
-    <body class="min-h-screen bg-grey-100">
-        <div class="sticky">
-            <header class="rounded top-0 left-0 right-0 bg-gradient-to-r from-indigo-500 to-indigo-600">
+    <div class="relitive">
+            <header class="fixed rounded top-0 left-0 right-0 bg-gradient-to-r from-indigo-500 to-indigo-600">
                 <nav class= "px-8 py-6 flex items-center text-white">
                     <div class="text-4xl pr-8">NerdHelpIT Logo</div>
                     <div class="flex-grow">
@@ -18,13 +17,15 @@
                     </div>
                 </nav>
             </header>
-        </div>
-        <div class="">
+    </div>
+    <body class="min-h-screen bg-grey-100">
+        
+        <div class="min-h-screen">
         <!-- page content -->
         {{template "page" .}}
-        <div>
-        <footer class=" leading-6 text-sm text-white bg-stone-800 px-8 py-6">
-            <p>Copyright &copy; NerdHelpIT. All rights reserved</p>
+        </div>
+        <footer class=" text-center leading-6 text-sm text-white bg-stone-800 px-8 py-6">
+            <p>Copyright &copy; NerdHelpIT. All rights reserved.</p>
         </footer>
     </body>
 

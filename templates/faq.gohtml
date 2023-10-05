@@ -1,7 +1,7 @@
 {{define "page"}}
-<div class=" px-6 py-6">
-    <h1 class="py-4 text-4xl semibold tracking-loose">FAQ Page</h1>
-    <ul class="grid grid-cols-2 gap-4">
+<div class="flex flex-col px-6 py-6 min-w-fit text-center justify-center">
+    <h1 class="py-4 text-4xl semibold">Fequently Asked Questions</h1>
+    <ul class="grid grid-cols-1 gap-6">
         {{range .}}
             {{template "qa" .}}
         {{end}}
@@ -12,8 +12,10 @@
 {{end}}
 
 {{define "qa"}}
-    <li class="bg-slate-300 border-t border-slate-700 py-1 px-2">
-    <span class="block text-lg text-grey-800">{{.Question}}</span>
-    <span class="block text-sm text-grey-500">{{.Answer}}</span>
+    <li class="bg-slate-300 border-t border-slate-700 py-1 px-2 hover:bg-slate-400 cursor-pointer">
+        <details>
+            <summary class="block text-lg text-grey-800">{{.Question}} &#9660;</summary>
+            <p class="block text-sm text-grey-500">{{.Answer}}</p>
+        </details>
     </li>
 {{end}}
