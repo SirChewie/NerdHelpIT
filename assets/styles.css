@@ -538,10 +538,6 @@ video {
   position: fixed;
 }
 
-.sticky {
-  position: sticky;
-}
-
 .left-0 {
   left: 0px;
 }
@@ -552,10 +548,6 @@ video {
 
 .top-0 {
   top: 0px;
-}
-
-.bottom-10 {
-  bottom: 2.5rem;
 }
 
 .block {
@@ -570,17 +562,8 @@ video {
   display: grid;
 }
 
-.h-1\/5 {
-  height: 20%;
-}
-
 .min-h-screen {
   min-height: 100vh;
-}
-
-.min-h-fit {
-  min-height: -moz-fit-content;
-  min-height: fit-content;
 }
 
 .min-w-fit {
@@ -702,19 +685,14 @@ video {
   padding-bottom: 1rem;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.py-64 {
-  padding-top: 16rem;
-  padding-bottom: 16rem;
-}
-
 .py-52 {
   padding-top: 13rem;
   padding-bottom: 13rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .pr-8 {
