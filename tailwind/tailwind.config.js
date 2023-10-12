@@ -7,6 +7,7 @@ module.exports = {
         "penn-blue": '#000033',
         "neon-blue": '#6366F1',
         "madder": '#A31621',
+        "homewhite": '#E2E5EC'
       }
     },
   },

@@ -3,11 +3,11 @@
 
 {{define "navBottomOpen"}}
 <header id="header" class="sticky min-w-fit left-0 right-0 top-0 z-10 ">
-    <nav  class= "px-8 md:h-fit h-20 py-2 flex items-center md:flex-grow md:flex-row justify-between md:justify-evenly rounded-s-full border-solid border-madder border-e-0 border-t-0 border-4 rounded-e-none top-0 left-0 right-0 bg-indigo-500 text-white">
+    <nav  class= "px-4 md:px-8 md:h-fit h-20 py-2 flex items-center md:flex-grow md:flex-row justify-between md:justify-evenly rounded-s-full border-solid border-madder border-e-0 border-t-0 border-4 rounded-e-none top-0 left-0 right-0 bg-gradient-to-r from-20% from-neon-blue to-indigo-400 text-white">
         <div class="flex text-4xl pr-8">
             <a class="flex flex-row items-center" href="/">
                 <img class="flex-auto align-middle" src="/assets/NerdHelpITLogo.png" width="64px" hight="64px">
-                <span class="flex-auto p-1 align-baseline text-penn-blue font-semibold">NerdHelpIT</span>
+                <span class="flex-auto p-1 align-baseline text-penn-blue font-semibold font-serif">NerdHelpIT</span>
             </a>
         </div>
         <div class="hover:cursor-pointer md:hidden" hx-trigger="click" hx-swap="outerHTML" hx-target="#header" hx-get="/nav">

@@ -15,7 +15,7 @@ func main() {
 	r := chi.NewRouter()
 
 	// Render the layout page then render the content page.
-	tpl, err := views.ParseFS(templates.FS, "tailwind.gohtml", "home.gohtml")
+	tpl, err := views.ParseFS(templates.FS, "home.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
