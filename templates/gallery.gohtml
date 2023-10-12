@@ -1,0 +1,19 @@
+{{define "page"}}
+<div class="px-6 pb-6 text-center">
+    <h1 class="pb-6 text-4xl text-stone-900 font-bold">Site Gallery</h1>
+    <div class="">
+        <ul class="flex md:justify-evenly flex-wrap justify-center">
+            {{range .}}
+                {{template "qa" .}}
+            {{end}}
+        </ul>
+    </div>
+
+</div>
+{{end}}
+
+{{define "qa"}}
+    <li class="odd:bg-madder odd:hover:bg-red-700 even:bg-penn-blue even:hover:bg-blue-950 m-8 rounded-lg flex-initial w-64 justify-center align-center  hover:scale-125 cursor-pointer">
+            <div class=" text-lg rounded-t-lg text-white">{{.Site}}<div class="bg-inherit rounded-b-lg ">{{.Description}}</div></div>
+    </li>
+{{end}}

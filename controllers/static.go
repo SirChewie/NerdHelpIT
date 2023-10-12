@@ -13,34 +13,63 @@ func StaticHandler(tpl views.Template) http.HandlerFunc {
 	}
 }
 
-func FAQ(tpl views.Template) http.HandlerFunc {
-	questions := []struct {
-		Question string
+func Gallery(tpl views.Template) http.HandlerFunc {
+	sites := []struct {
 		// !Warning! only user template.HTML if you trust the input. This is a security risk. If you don't trust the input, use "string" instead.
-		Answer template.HTML
+		Site        template.HTML
+		Description string
 	}{
 		{
-			Question: "What is NerdHelpIT?",
-			Answer:   "NerdHelpIT is a web application that helps you find the right help for your problem.",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
 		},
 		{
-
-			Question: "What Services do we offer?",
-			Answer:   "NerdHelpIT is a web application that helps you find the right help for your problem.",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
 		},
 		{
-
-			Question: "How do I contact NerdHelpIT?",
-			Answer:   "Contact us at <a href=\"mailto:jblalock@nerdhelpit.com\">jblalock@nerdhelpit.com</a> if you have any questions.",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
 		},
 		{
-
-			Question: "Where is your data stored?",
-			Answer:   "NerdHelpIT stores all of your data encrypted on our servers within the United States.",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
+		},
+		{
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
+		},
+		{
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
+		},
+		{
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
+		},
+		{
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
+		},
+		{
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
+		},
+		{
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
+		},
+		{
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
+		},
+		{
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Description: "Pazitivo Inspired Kitchen",
 		},
 	}
 	return func(w http.ResponseWriter, r *http.Request) {
-		tpl.Execute(w, questions)
+		tpl.Execute(w, sites)
 	}
 
 }

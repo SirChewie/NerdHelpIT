@@ -31,13 +31,13 @@ func main() {
 
 	r.Get("/contact", controllers.StaticHandler(tpl))
 
-	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "faq.gohtml")
+	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "gallery.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
 	}
 
-	r.Get("/faq", controllers.FAQ(tpl))
+	r.Get("/gallery", controllers.Gallery(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "support.gohtml")
 	if err != nil {
@@ -54,6 +54,22 @@ func main() {
 	}
 
 	r.Get("/about", controllers.StaticHandler(tpl))
+
+	tpl, err = views.ParseFS(templates.FS, "nav.gohtml")
+	if err != nil {
+		log.Printf("parsing template: %v", err)
+		return
+	}
+
+	r.Get("/nav", controllers.StaticHandler(tpl))
+
+	tpl, err = views.ParseFS(templates.FS, "navOpen.gohtml")
+	if err != nil {
+		log.Printf("parsing template: %v", err)
+		return
+	}
+
+	r.Get("/navOpen", controllers.StaticHandler(tpl))
 
 	assetsHandler := http.FileServer(http.Dir("assets"))
 	r.Get("/assets/*", http.StripPrefix("/assets", assetsHandler).ServeHTTP)

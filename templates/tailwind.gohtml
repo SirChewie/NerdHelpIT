@@ -1,30 +1,77 @@
 <!doctype html>
-<html>
+<html class="min-w-fit md:relative">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/assets/styles.css" rel="stylesheet">
+        <script src="/assets/htmx.min.js"></script>
     </head>
-    <div class="relitive">
-            <header class="fixed rounded top-0 left-0 right-0 bg-gradient-to-r from-indigo-500 to-indigo-600">
-                <nav class= "px-8 py-6 flex items-center text-white">
-                    <div class="text-4xl pr-8">
-                        <a href="/">
-                            <img src="/assets/NerdHelpITLogo.png" width="64" hight="64">
-                        </a>
+        <header id="header" class="sticky min-w-fit left-0 right-0 top-0 z-10 ">
+            <nav class= "px-8 md:h-fit h-20 py-2 flex items-center md:flex-grow md:flex-row justify-between md:justify-evenly rounded-s-full border-solid border-madder border-e-0 border-t-0 border-4 rounded-e-none top-0 left-0 right-0 bg-indigo-500 text-white">
+                <div class="flex text-4xl pr-8">
+                    <a class="flex flex-row items-center" href="/">
+                        <img class="flex-auto align-middle" src="/assets/NerdHelpITLogo.png" width="64px" hight="64px">
+                        <span class="flex-auto p-1 align-baseline text-penn-blue font-semibold">NerdHelpIT</span>
+                    </a>
+                </div>
+                <div class="hover:cursor-pointer md:hidden" hx-trigger="click" hx-swap="outerHTML" hx-target="#header" hx-get="/nav">
+                    <div class="my-1 bg-white rounded-full w-6 h-1">
                     </div>
-                    <div class="flex-grow">
-                        <a class="text-lg font-semibold pr-8" href="/">Home</a>
-                        <a class="text-lg font-semibold pr-8" href="/about">About</a>
-                        <a class="text-lg font-semibold pr-8" href="/contact">Contact Us</a>
-                        <a class="text-lg font-semibold pr-8" href="/faq">FAQ</a>
+                    <div class=" bg-white rounded-full w-6 h-1">
                     </div>
-                </nav>
-            </header>
-    </div>
-    <body class="min-h-screen bg-grey-100">
+                    <div class="my-1 bg-white rounded-full w-6 h-1">
+                    </div>
+                </div>
+                <div class="hidden md:flex md:flex-grow min-w-fit text-white align-middle justify-evenly text-center w-20">
+                    <a class="text-lg text-inherit font-semibold target:text-madder" href="/">
+                        <div class="hover:cursor-pointer mb-2 md:shadow-sm">
+                            Home
+                        </div>
+                    </a>                    
+                    <a class="md:flex text-lg text-inherit font-semibold" href="/about">
+                        <div class="hover:cursor-pointer mb-2 md:shadow-sm">
+                            About
+                        </div>
+                    </a>                    
+                    <a class="md:flex text-lg text-inherit font-semibold" href="/contact">
+                        <div class="hover:cursor-pointer mb-2 md:shadow-sm">
+                            Contact
+                        </div>
+                    </a>
+                    <a class="md:flex text-lg text-inherit font-semibold" href="/gallery">
+                        <div class="hover:cursor-pointer mb-2 md:shadow-sm">
+                            Gallery
+                        </div>
+                    </a>
+                    
+                </div>
+            </nav>
+            <div class="hidden md:hidden flex-grow min-w-fit text-white align-middle text-center">
+                <a class="text-lg text-inherit font-semibold target:text-madder" href="/">
+                    <div class="hover:cursor-pointer mb-2 md:shadow-sm">
+                        Home
+                    </div>
+                </a>                    
+                <a class="text-lg text-inherit font-semibold" href="/about">
+                    <div class="hover:cursor-pointer mb-2 md:shadow-sm">
+                        About
+                    </div>
+                </a>                    
+                <a class="text-lg text-inherit font-semibold" href="/contact">
+                    <div class="hover:cursor-pointer mb-2 md:shadow-sm">
+                        Contact
+                    </div>
+                </a>
+                <a class="text-lg text-inherit font-semibold" href="/gallery">
+                    <div class="hover:cursor-pointer mb-2 md:shadow-sm">
+                        Gallery
+                    </div>
+                </a> 
+            </div>
+        </header>
+    <body class="min-h-screen bg-gradient-to-b from-gray-200 to-gray-400">
         
-        <div class="min-h-screen">
+        <div class="min-h-screen rounded-3xl my-6 mx-6">
         <!-- page content -->
         {{template "page" .}}
         </div>
