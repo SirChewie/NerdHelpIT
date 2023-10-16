@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="min-w-fit w-screen md:relative">
+<html class="min-h-screen bg-gradient-to-b md:from-50% from-homewhite to-90% to-stone-800">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
         <link href="/assets/styles.css" rel="stylesheet">
         <script src="/assets/htmx.min.js"></script>
     </head>
-        <header id="header" class="sticky min-w-fit left-0 right-0 top-0 z-10 ">
+        <header id="header" class="relative lg:sticky min-w-fit left-0 right-0 top-0 z-20 ">
             <nav class= "px-4 md:px-8 md:h-fit h-20 py-2 flex items-center md:flex-grow md:flex-row justify-between md:justify-evenly border-solid border-indigo-500 border-b-4 top-0 left-0 right-0 bg-gradient-to-r to-20% to-neon-blue from-indigo-400 text-white">
                 <div class="flex text-4xl pr-8">
                     <a class="flex flex-row items-center" href="/">
@@ -41,7 +41,7 @@
                     </a>
                     <a class="md:flex text-lg text-inherit font-semibold" href="/gallery">
                         <div class="hover:cursor-pointer mb-2 ">
-                            Gallery
+                           Website Gallery
                         </div>
                     </a>
                     
@@ -70,14 +70,20 @@
                 </a> 
             </div>
         </header>
-    <body class="min-h-screen bg-gradient-to-b from-gray-200 to-gray-400">
+    <body class="min-h-screen">
         
         <div class="min-h-screen rounded-3xl my-6 mx-6">
         <!-- page content -->
         {{template "page" .}}
         </div>
-        <footer class=" text-center leading-6 text-sm text-white bg-stone-800 px-8 py-6">
-            <p>Copyright &copy; NerdHelpIT. All rights reserved.</p>
+        <footer class="text-center relative bottom-0 right-0 left-0 pt-16 pb-4 leading-6 text-sm text-white bg-stone-800 px-8">
+            <ul>
+                <li class=""><a href="/">Home</a></li>
+                <li class=""><a href="/about">About</a></li>
+                <li class=""><a href="/contact">Contact</a></li>
+                <li class=""><a href="/gallery">Website Gallery</a></li>
+            </ul>
+            <span class="mt-4">Copyright &copy; NerdHelpIT. All rights reserved.</span>
         </footer>
     </body>
 </html>

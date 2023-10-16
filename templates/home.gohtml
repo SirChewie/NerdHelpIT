@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="min-w-fit w-screen md:relative bg-gradient-to-b from-60% from-homewhite to-70% to-stone-500">
+<html class="min-w-fit">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
         <link href="/assets/styles.css" rel="stylesheet">
         <script src="/assets/htmx.min.js"></script>
     </head>
-        <header id="header" class="sticky min-w-fit left-0 right-0 top-0 z-10 ">
+        <header id="header" class="relative lg:sticky min-w-fit left-0 right-0 top-0 z-20 ">
             <nav class= " px-4 md:px-8 md:h-fit h-20 py-2 flex items-center md:flex-grow md:flex-row justify-between md:justify-evenly border-indigo-500 border-b-4 top-0 left-0 right-0 bg-gradient-to-r to-20% to-neon-blue from-indigo-400 text-white">
                 <div class="flex text-4xl pr-8">
                     <a class="flex flex-row items-center" href="/">
@@ -41,7 +41,7 @@
                     </a>
                     <a class="md:flex text-lg text-inherit font-semibold" href="/gallery">
                         <div class="hover:cursor-pointer mb-2">
-                            Gallery
+                            Website Gallery
                         </div>
                     </a>
                     
@@ -65,21 +65,31 @@
                 </a>
                 <a class="text-lg text-inherit font-semibold" href="/gallery">
                     <div class="hover:cursor-pointer mb-2 md:shadow-sm">
-                        Gallery
+                        Website Gallery
                     </div>
                 </a> 
             </div>
         </header>
-    <body class="min-h-screen max-w-screen bg-[url('/assets/Glasses_Laptop.png')] bg-center bg-contain md:bg-cover bg-no-repeat">
-        <!-- <img class="relitive top-0 object-cover w-screen h-auto "src="/assets/1600_5c6ad2ed3ec1b.jpg"> -->
-        <div class="min-h-screen rounded-3xl my-6 mx-6">
+    <body class="min-h-screen ">
+        
+        <div class="min-h-screen py-4 bg-cover bg-no-repeat bg-center" style="background-image: url('/assets/Glasses_Laptop.png');">
         
         <!-- page content -->
-            <h1 class="w-full py-2.5 text-4xl text-stone-900 font-bold text-center font-serif">NerdHelpIT</h1>
+            <div class="min-w-fit">
+                <h1 class="w-full py-2.5 drop-shadow-md md:z-0 z-10 text-4xl text-stone-900 font-bold text-center font-serif">NerdHelpIT</h1>
+                <h3 class=" w-full text-stone-900 md:z-0 z-10 text-center drop-shadow-sm">Web Development &amp; IT Services</h3>
+                <div class="w-full sm:mt-8 text-white text-center text-bold  rounded-full  py-1"><a class="bg-neon-blue px-14 border-2 border-indigo-600 drop-shadow-xl shadow-indigo-500 rounded-full" href="/contact">Get a Quote</a></div>
+            </div>
         </div>
         <!-- page content stops -->
-        <footer class=" text-center leading-6 text-sm text-white bg-stone-800 px-8 py-6">
-            <p>Copyright &copy; NerdHelpIT. All rights reserved.</p>
+        <footer class="text-center relative bottom-0 right-0 left-0 pt-16 pb-4 leading-6 text-sm text-white bg-stone-800 px-8">
+            <ul>
+                <li class=""><a href="/">Home</a></li>
+                <li class=""><a href="/about">About</a></li>
+                <li class=""><a href="/contact">Contact</a></li>
+                <li class=""><a href="/gallery">Website Gallery</a></li>
+            </ul>
+            <span class="mt-4">Copyright &copy; NerdHelpIT. All rights reserved.</span>
         </footer>
         
     </body>
