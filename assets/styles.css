@@ -930,6 +930,10 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-60\% {
+  --tw-gradient-from-position: 60%;
+}
+
 .to-gray-400 {
   --tw-gradient-to: #9ca3af var(--tw-gradient-to-position);
 }
@@ -942,12 +946,20 @@ video {
   --tw-gradient-to: #292524 var(--tw-gradient-to-position);
 }
 
+.to-stone-500 {
+  --tw-gradient-to: #78716c var(--tw-gradient-to-position);
+}
+
 .to-20\% {
   --tw-gradient-to-position: 20%;
 }
 
 .to-90\% {
   --tw-gradient-to-position: 90%;
+}
+
+.to-70\% {
+  --tw-gradient-to-position: 70%;
 }
 
 .bg-contain {
@@ -1380,6 +1392,10 @@ video {
 
   .md\:bg-contain {
     background-size: contain;
+  }
+
+  .md\:bg-cover {
+    background-size: cover;
   }
 
   .md\:px-8 {
