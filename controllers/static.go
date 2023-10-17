@@ -20,51 +20,35 @@ func Gallery(tpl views.Template) http.HandlerFunc {
 		Description string
 	}{
 		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" alt=\"Customer's webpage.\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
 			Description: "Pazitivo Inspired Kitchen",
 		},
 		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" alt=\"Customer's webpage.\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
 			Description: "Pazitivo Inspired Kitchen",
 		},
 		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" alt=\"Customer's webpage.\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
 			Description: "Pazitivo Inspired Kitchen",
 		},
 		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" alt=\"Customer's webpage.\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
 			Description: "Pazitivo Inspired Kitchen",
 		},
 		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" alt=\"Customer's webpage.\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
 			Description: "Pazitivo Inspired Kitchen",
 		},
 		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" alt=\"Customer's webpage.\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
 			Description: "Pazitivo Inspired Kitchen",
 		},
 		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" alt=\"Customer's webpage.\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
 			Description: "Pazitivo Inspired Kitchen",
 		},
 		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
-			Description: "Pazitivo Inspired Kitchen",
-		},
-		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
-			Description: "Pazitivo Inspired Kitchen",
-		},
-		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
-			Description: "Pazitivo Inspired Kitchen",
-		},
-		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
-			Description: "Pazitivo Inspired Kitchen",
-		},
-		{
-			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
+			Site:        "<a class=\"flex justify-center items-center\" href=\"https://pazitivo.com\" target=\"_blank\"><img class=\"rounded-t-lg\" alt=\"Customer's webpage.\" src=\"assets\\PazitivoLogo.jpeg\"/></a>",
 			Description: "Pazitivo Inspired Kitchen",
 		},
 	}

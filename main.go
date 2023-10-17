@@ -63,13 +63,13 @@ func main() {
 
 	r.Get("/nav", controllers.StaticHandler(tpl))
 
-	tpl, err = views.ParseFS(templates.FS, "navOpen.gohtml")
+	tpl, err = views.ParseFS(templates.FS, "navClose.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
 	}
 
-	r.Get("/navOpen", controllers.StaticHandler(tpl))
+	r.Get("/navClose", controllers.StaticHandler(tpl))
 
 	assetsHandler := http.FileServer(http.Dir("assets"))
 	r.Get("/assets/*", http.StripPrefix("/assets", assetsHandler).ServeHTTP)
