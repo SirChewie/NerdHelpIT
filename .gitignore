@@ -8,6 +8,7 @@
 *.so
 *.bin
 *NerdHelpIT.exe~
+*.env
 # Ignored durring development #
 ###############################
 
