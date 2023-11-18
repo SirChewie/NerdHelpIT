@@ -16,32 +16,41 @@ import (
 )
 
 func main() {
+	// Load configuration from ENV variables
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file:")
 	}
-	host := os.Getenv("SMTP_HOST")
-	portStr := os.Getenv("SMTP_PORT")
-	port, err := strconv.Atoi(portStr)
-	if err != nil {
-		panic(err)
-	}
-	username := os.Getenv("SMTP_USERNAME")
-	password := os.Getenv("SMTP_PASSWORD")
 
-	es := models.NewEmailService(models.SMTPConfig{
-		Host:     host,
-		Port:     port,
-		Username: username,
-		Password: password,
+	sAddress := os.Getenv("SERVING_ADDRESS")
+	esHost := os.Getenv("SMTP_HOST")
+	esPortStr := os.Getenv("SMTP_PORT")
+	// convert needed variables to int values
+	esPort, err := strconv.Atoi(esPortStr)
+	if err != nil {
+		log.Fatalf("Error parsing port number.\n Provided number: %v\n Error:%v", esPortStr, err)
+	}
+	esUsername := os.Getenv("SMTP_USERNAME")
+	esPassword := os.Getenv("SMTP_PASSWORD")
+
+	// Setup the email service.
+	models.NewEmailService(models.SMTPConfig{
+		Host:     esHost,
+		Port:     esPort,
+		Username: esUsername,
+		Password: esPassword,
 	})
-	// This is just for testing purposes only
-	err = es.EmailForm("jhb1085@gmail.com", username)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("Email Sent successfully")
 
+	/////////////////////////////////////////
+	// This is just for testing purposes only, set the above NewEmailService to "es :=" for the test to work.
+	//err = es.EmailForm(os.Getenv("SMTP_SENTADDRESS"), username)
+	//if err != nil {
+	//	panic(err)
+	//}
+	//fmt.Println("Email Sent successfully")
+	////////////////////////////////////////
+
+	// Declares the router interface
 	r := chi.NewRouter()
 
 	// Render the layout page then render the content page.
@@ -104,6 +113,9 @@ func main() {
 	assetsHandler := http.FileServer(http.Dir("assets"))
 	r.Get("/assets/*", http.StripPrefix("/assets", assetsHandler).ServeHTTP)
 
-	fmt.Println("Starting server on :3000")
-	http.ListenAndServe(":3000", r)
+	fmt.Println("Starting server on:", sAddress)
+	err = http.ListenAndServe(sAddress, r)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

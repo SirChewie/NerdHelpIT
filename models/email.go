@@ -2,12 +2,13 @@ package models
 
 import (
 	"fmt"
+	"os"
 
 	"gopkg.in/mail.v2"
 )
 
-const (
-	DefaultSender = "support@nerdhelpit.com"
+var (
+	DefaultSender = os.Getenv("SMTP_DEFAULT_SENDER")
 )
 
 type Email struct {
@@ -60,7 +61,7 @@ func (es *EmailService) Send(email Email) error {
 	return nil
 }
 
-// Function sends the filled out from to the given email
+// Function sends the filled out form to the given email
 func (es *EmailService) EmailForm(to, from string) error {
 	email := Email{
 		Subject:   "New form submission",
