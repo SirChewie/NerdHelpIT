@@ -20,8 +20,8 @@ type Email struct {
 }
 
 type SMTPConfig struct {
-	Host     string
 	Port     int
+	Host     string
 	Username string
 	Password string
 }
