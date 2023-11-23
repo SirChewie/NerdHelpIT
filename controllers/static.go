@@ -3,6 +3,7 @@ package controllers
 import (
 	"html/template"
 	"net/http"
+	"os"
 
 	"github.com/SirChewie/NerdHelpIT/views"
 )
@@ -28,4 +29,18 @@ func Gallery(tpl views.Template) http.HandlerFunc {
 		tpl.Execute(w, sites)
 	}
 
+}
+func Contact(tpl views.Template) http.HandlerFunc {
+	contactInfo := []struct {
+		Email       string
+		PhoneNumber string
+	}{
+		{
+			Email:       os.Getenv("CONTACT_EMAIL"),
+			PhoneNumber: os.Getenv("CONTACT_PHONE"),
+		},
+	}
+	return func(w http.ResponseWriter, r *http.Request) {
+		tpl.Execute(w, contactInfo)
+	}
 }

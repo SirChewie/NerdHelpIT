@@ -1,6 +1,16 @@
 {{define "page"}}
 <h1>Contact Page</h1>
-<span>Email us at <a href="mailto:emailaddress">emailaddress</a>.</span>
+<span>Email us at <a href="mailto:email">{{.Email}}</a>.</span>
 <br>
-<span>Call us at <a href="tel:">phonenumber</a>.</span>
+<span>Call us at <a href="tel:phone">{{.PhoneNumber}}</a>.</span>
+<h1>Contact</h1>
+<form method="POST">
+    <label>Email:</label><br />
+    <input type="text" name="email"><br />
+    <label>Subject:</label><br />
+    <input type="text" name="subject"><br />
+    <label>Message:</label><br />
+    <textarea name="message"></textarea><br />
+    <input type="submit">
+</form>
 {{end}}

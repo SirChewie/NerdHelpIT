@@ -59,7 +59,6 @@ func main() {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-
 	r.Get("/", controllers.StaticHandler(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "contact.gohtml")
@@ -67,15 +66,13 @@ func main() {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-
-	r.Get("/contact", controllers.StaticHandler(tpl))
+	r.Get("/contact", controllers.Contact(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "gallery.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-
 	r.Get("/gallery", controllers.Gallery(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "support.gohtml")
@@ -83,7 +80,6 @@ func main() {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-
 	r.Get("/support", controllers.StaticHandler(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "about.gohtml")
@@ -91,7 +87,6 @@ func main() {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-
 	r.Get("/about", controllers.StaticHandler(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "nav.gohtml")
@@ -99,7 +94,6 @@ func main() {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-
 	r.Get("/nav", controllers.StaticHandler(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "navClose.gohtml")
@@ -107,7 +101,6 @@ func main() {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-
 	r.Get("/navClose", controllers.StaticHandler(tpl))
 
 	assetsHandler := http.FileServer(http.Dir("assets"))
@@ -116,6 +109,6 @@ func main() {
 	fmt.Println("Starting server on:", sAddress)
 	err = http.ListenAndServe(sAddress, r)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Error Serving:%s\nError:%v", sAddress, err)
 	}
 }
