@@ -32,15 +32,13 @@ func main() {
 	}
 	esUsername := os.Getenv("SMTP_USERNAME")
 	esPassword := os.Getenv("SMTP_PASSWORD")
-
-	// Setup the email service.
+	// Setup the email service config.
 	models.NewEmailService(models.SMTPConfig{
 		Host:     esHost,
 		Port:     esPort,
 		Username: esUsername,
 		Password: esPassword,
 	})
-
 	/////////////////////////////////////////
 	// This is just for testing purposes only, set the above NewEmailService to "es :=" for the test to work.
 	//err = es.EmailForm(os.Getenv("SMTP_SENTADDRESS"), username)
@@ -66,7 +64,7 @@ func main() {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-	r.Get("/contact", controllers.Contact(tpl))
+	r.Get("/contact", controllers.StaticHandler(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "gallery.gohtml")
 	if err != nil {
