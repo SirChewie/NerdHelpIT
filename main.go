@@ -32,6 +32,7 @@ func main() {
 	}
 	esUsername := os.Getenv("SMTP_USERNAME")
 	esPassword := os.Getenv("SMTP_PASSWORD")
+
 	// Setup the email service config.
 	models.NewEmailService(models.SMTPConfig{
 		Host:     esHost,
@@ -39,6 +40,7 @@ func main() {
 		Username: esUsername,
 		Password: esPassword,
 	})
+
 	/////////////////////////////////////////
 	// This is just for testing purposes only, set the above NewEmailService to "es :=" for the test to work.
 	//err = es.EmailForm(os.Getenv("SMTP_SENTADDRESS"), username)

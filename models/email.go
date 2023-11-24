@@ -2,13 +2,8 @@ package models
 
 import (
 	"fmt"
-	"os"
 
 	"gopkg.in/mail.v2"
-)
-
-var (
-	DefaultSender = os.Getenv("SMTP_DEFAULT_SENDER")
 )
 
 type Email struct {
@@ -34,7 +29,6 @@ func NewEmailService(config SMTPConfig) *EmailService {
 }
 
 type EmailService struct {
-	DefaultSender string
 
 	// unexported fields
 	dialer *mail.Dialer
@@ -43,7 +37,7 @@ type EmailService struct {
 func (es *EmailService) Send(email Email) error {
 	msg := mail.NewMessage()
 	msg.SetHeader("To", email.To)
-	es.setFrom(msg, email)
+	msg.SetHeader("From", email.From)
 	msg.SetHeader("Subject", email.Subject)
 	switch {
 	case email.PlainText != "" && email.HTML != "":
@@ -75,17 +69,4 @@ func (es *EmailService) EmailForm(to, from string) error {
 		return fmt.Errorf("error sending email: %w", err)
 	}
 	return nil
-}
-
-func (es *EmailService) setFrom(msg *mail.Message, email Email) {
-	var from string
-	switch {
-	case email.From != "":
-		from = email.From
-	case es.DefaultSender != "":
-		from = es.DefaultSender
-	default:
-		from = DefaultSender
-	}
-	msg.SetHeader("From", from)
 }
