@@ -54,19 +54,3 @@ func (es *EmailService) Send(email Email) error {
 	}
 	return nil
 }
-
-// Function sends the filled out form to the given email
-func (es *EmailService) EmailForm(to, from string) error {
-	email := Email{
-		Subject:   "New form submission",
-		To:        to,                                 // TODO: pull from .ENV
-		From:      from,                               // TODO: pull from .ENV
-		PlainText: "Hello this is some plain text.",   // TODO: use plain text from form
-		HTML:      `<h1>Hello this is some HTML</h1>`, // TODO: make the form into a HTML template
-	}
-	err := es.Send(email)
-	if err != nil {
-		return fmt.Errorf("error sending email: %w", err)
-	}
-	return nil
-}

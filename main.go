@@ -16,6 +16,7 @@ import (
 )
 
 func main() {
+
 	// Load configuration from ENV variables
 	err := godotenv.Load()
 	if err != nil {
@@ -30,25 +31,17 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error parsing port number.\n Provided number: %v\n Error:%v", esPortStr, err)
 	}
+	esDefaultDropOff := os.Getenv("SMTP_DEFAULT_DROP_OFF")
 	esUsername := os.Getenv("SMTP_USERNAME")
 	esPassword := os.Getenv("SMTP_PASSWORD")
 
 	// Setup the email service config.
-	models.NewEmailService(models.SMTPConfig{
+	es := models.NewEmailService(models.SMTPConfig{
 		Host:     esHost,
 		Port:     esPort,
 		Username: esUsername,
 		Password: esPassword,
 	})
-
-	/////////////////////////////////////////
-	// This is just for testing purposes only, set the above NewEmailService to "es :=" for the test to work.
-	//err = es.EmailForm(os.Getenv("SMTP_SENTADDRESS"), username)
-	//if err != nil {
-	//	panic(err)
-	//}
-	//fmt.Println("Email Sent successfully")
-	////////////////////////////////////////
 
 	// Declares the router interface
 	r := chi.NewRouter()
@@ -67,13 +60,14 @@ func main() {
 		return
 	}
 	r.Get("/contact", controllers.StaticHandler(tpl))
+	r.Post("/contact", controllers.ContactFormHandler(tpl, es, esDefaultDropOff, esUsername))
 
 	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "gallery.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-	r.Get("/gallery", controllers.Gallery(tpl))
+	r.Get("/gallery", controllers.GalleryHandler(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "support.gohtml")
 	if err != nil {
