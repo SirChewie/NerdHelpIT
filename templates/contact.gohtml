@@ -1,12 +1,20 @@
 {{define "page"}}
-<h1>Contact</h1>
-<form method="POST">
-    <label>Email:</label><br />
-    <input type="text" name="email"><br />
-    <label>Subject:</label><br />
-    <input type="text" name="subject"><br />
-    <label>Message:</label><br />
-    <textarea name="message"></textarea><br />
-    <input type="submit">
-</form>
+<div class="px-6 pb-6 text-center">
+    <h1 class="pb-6 text-4xl text-stone-900 text-center font-bold">Contact Us</h1>
+    <div class="flex md:justify-evenly flex-wrap justify-center text-left">
+        <form method="POST">
+            <label>Name:*</label><br />
+            <input type="text" name="name" required="true"><br />
+            <label>Phone:*</label><br />
+            <input type="tel" name="phone" required="true"><br />
+            <label>Email:*</label><br />
+            <input type="email" name="email" required="true"><br />
+            <label>Subject:</label><br />
+            <input type="text" name="subject"><br />
+            <label>Message:*</label><br />
+            <textarea name="message"></textarea><br />
+            <input type="submit" class="hover:cursor-pointer hover:scale-125 text-white text-center font-bold bg-stone-800 px-14 border-2 border-stone-800 border-t-stone-700 border-b-stone-900 drop-shadow-xl shadow-black rounded-full">
+        </form>
+    </div>
+</div>
 {{end}}

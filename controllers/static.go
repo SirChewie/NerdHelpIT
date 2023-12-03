@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"regexp"
 
 	"github.com/SirChewie/NerdHelpIT/models"
 	"github.com/SirChewie/NerdHelpIT/views"
@@ -39,15 +40,20 @@ func ContactFormHandler(tpl views.Template, es *models.EmailService, recevingEma
 			tpl.Execute(w, nil)
 			return
 		}
-		// TODO: Sanatize the form data
+		emptySpace := []byte("")
+		// HTML sanitizer. TODO: iterate over this instead.
+		sMessage := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("message")), emptySpace))
+		sSubject := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("subject")), emptySpace))
+		sName := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("name")), emptySpace))
+		sPhone := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("phone")), emptySpace))
 
 		email := models.Email{
 
 			To:        recevingEmail,
 			From:      sendingEmail,
-			Subject:   "New form submission from: " + r.FormValue("subject"),
-			PlainText: "Email: " + r.FormValue("email") + "\n" + r.FormValue("message"),
-			HTML:      `<span>Email:` + r.FormValue("email") + `<br>` + r.FormValue("message") + `</span>`,
+			Subject:   sName + ": " + sSubject,
+			PlainText: "Name: " + sName + "\n" + "Email: " + r.FormValue("email") + "\n" + "Phone number: " + sPhone + "\n" + "Message: " + sMessage + "\n",
+			HTML:      `<span>Name: ` + sName + `<br />` + `Email: ` + r.FormValue("email") + `<br />` + `Phone number: ` + sPhone + `<br />` + `Message: ` + `<br />` + sMessage + `<br />` + `</span>`,
 		}
 		err := es.Send(email)
 		if err != nil {
@@ -55,6 +61,5 @@ func ContactFormHandler(tpl views.Template, es *models.EmailService, recevingEma
 			return
 		}
 		tpl.Execute(w, struct{ Success bool }{true})
-		return
 	}
 }
