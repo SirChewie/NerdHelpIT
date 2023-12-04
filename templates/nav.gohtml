@@ -2,7 +2,7 @@
 {{template "navBottom"}}
 
 {{define "navBottom"}}
-<div id="navBottom" class=" border-indigo-500 border-b-4 rounded-b-lg md:hidden flex-grow min-w-fit text-stone-200 align-middle text-left">
+<div id="navBottom" class="  md:hidden flex-grow min-w-fit text-stone-200 align-middle text-left">
     <a class=" hover:text-white text-lg text-inherit font-semibold" href="/">
         <div class="pl-4 bg-gradient-to-r to-20% to-neon-blue from-indigo-400  w-auto  hover:cursor-pointer md:shadow-sm">
             Home
@@ -18,13 +18,13 @@
             Contact
         </div>
     </a>
-    <a class="hover:text-white text-lg text-inherit font-semibold" href="/gallery">
-        <div class="pl-4 bg-gradient-to-r to-20% to-neon-blue from-indigo-400 w-auto  hover:cursor-pointer md:shadow-sm">
+    <a class="hover:text-white text-lg rounded-b-lg text-inherit font-semibold" href="/gallery">
+        <div class="pl-4 bg-gradient-to-r to-20%  to-neon-blue from-indigo-400 w-auto  hover:cursor-pointer md:shadow-sm">
             Gallery
         </div>
     </a> 
 </div>
-<div id="stack" hx-swap-oob="true" class="hover:cursor-pointer md:hidden group/stack"hx-get="navClose" hx-trigger="click" hx-swap="outerHTML" hx-target="#navBottom">
+<div id="stack" hx-swap-oob="true" class="hover:cursor-pointer md:hidden group/stack"hx-get="navClose" hx-trigger="click" hx-swap="outerHTML transition:true" hx-target="#navBottom">
     <div class="my-1 group-hover/stack:bg-stone-800 bg-black rounded-full w-6 h-1">
     </div>
     <div class=" group-hover/stack:bg-stone-800 bg-black rounded-full w-6 h-1">

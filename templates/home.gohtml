@@ -5,19 +5,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Web development and IT Services">
-        <link rel="icon" type="image/x-icon" href="/assets/NerdHelpITLogo.ico">
+        <link rel="icon" type="image/x-icon" href="/assets/32x32NerdHelpIT.ico">
         <link href="/assets/styles.css" rel="stylesheet">
         <script src="/assets/htmx.min.js"></script>
     </head>
     <body class="min-h-screen ">
-        <nav id="nav" class="px-4 md:px-8 md:h-fit h-20 py-2 flex items-center md:flex-grow md:flex-row justify-between md:justify-evenly border-indigo-500 border-b-4 bg-gradient-to-r to-20% to-neon-blue from-indigo-400 text-white">
+        <nav id="nav" class="px-4 md:px-8 md:h-fit h-20 py-2 flex items-center md:flex-grow md:flex-row justify-between md:justify-evenly bg-gradient-to-r to-20% to-neon-blue from-indigo-400 text-white">
             <div class="flex text-4xl pr-8">
                 <a class="flex flex-row items-center" href="/">
                     <img src="/assets/NerdHelpITLogo.png" alt="Logo" width="64px" height="58px">
                     <span class="hidden sm:block flex-auto p-1 align-baseline text-black font-semibold font-serif">NerdHelpIT</span>
                 </a>
             </div>
-            <div id="stack" class="hover:cursor-pointer md:hidden group/stack" hx-trigger="click" hx-swap="afterend" hx-target="#nav" hx-get="/nav">
+            <div id="stack" class="hover:cursor-pointer md:hidden group/stack" hx-trigger="click" hx-swap="afterend transition:true" hx-target="#nav" hx-get="/nav">
                 <div class="my-1 group-hover/stack:bg-stone-800 bg-black rounded-full w-6 h-1">
                 </div>
                 <div class=" group-hover/stack:bg-stone-800 bg-black rounded-full w-6 h-1">
@@ -25,24 +25,24 @@
                 <div class="my-1 group-hover/stack:bg-stone-800 bg-black rounded-full w-6 h-1">
                 </div>
             </div>
-            <div class="hidden md:flex md:flex-grow min-w-fit text-white align-middle justify-evenly text-center w-20">
+            <div class="hidden md:flex md:flex-grow min-w-fit text-stone-200 align-middle justify-evenly text-center w-20">
                 <a class="text-lg text-inherit font-semibold" href="/">
-                    <div class="hover:cursor-pointer mb-2">
+                    <div class="hover:cursor-pointer hover:text-white mb-2">
                         Home
                     </div>
                 </a>                    
                 <a class="md:flex text-lg text-inherit font-semibold" href="/about">
-                    <div class="hover:cursor-pointer mb-2">
+                    <div class="hover:cursor-pointer hover:text-white mb-2">
                         About
                     </div>
                 </a>                    
                 <a class="md:flex text-lg text-inherit font-semibold" href="/contact">
-                    <div class="hover:cursor-pointer mb-2">
+                    <div class="hover:cursor-pointer hover:text-white mb-2">
                         Contact
                     </div>
                 </a>
                 <a class="md:flex text-lg text-inherit font-semibold" href="/gallery">
-                    <div class="hover:cursor-pointer mb-2">
+                    <div class="hover:cursor-pointer hover:text-white mb-2">
                         Website Gallery
                     </div>
                 </a>   
