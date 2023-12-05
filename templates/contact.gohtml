@@ -1,18 +1,18 @@
 {{define "page"}}
 <div class="px-6 pb-6 text-center">
     <h1 class="pb-6 text-4xl text-stone-900 text-center font-bold">Contact Us</h1>
-    <div class="flex md:justify-evenly flex-wrap justify-center text-left">
-        <form method="POST">
+    <div class="flex flex-row md:justify-evenly flex-wrap justify-center text-left">
+        <span class="">Some text</span>
+        <form class="" method="POST">
+            <p class="py-4">* required fields.</p><br />
             <label>Name:*</label><br />
-            <input type="text" name="name" required="true"><br />
+            <input type="text" name="name" size="30" placeholder="Full Name" required="true"><br />
             <label>Phone:*</label><br />
-            <input type="tel" name="phone" required="true"><br />
+            <input type="tel" name="phone" size="30" placeholder="xxx-xxx-xxxx" required="true"><br />
             <label>Email:*</label><br />
-            <input type="email" name="email" required="true"><br />
-            <label>Subject:</label><br />
-            <input type="text" name="subject"><br />
+            <input type="email" name="email" size="30" placeholder="email@example.com" required="true"><br />
             <label>Message:*</label><br />
-            <textarea name="message"></textarea><br />
+            <textarea name="message" rows="5" cols="32"></textarea><br />
             <input type="submit" class="hover:cursor-pointer hover:scale-125 text-white text-center font-bold bg-stone-800 px-14 border-2 border-stone-800 border-t-stone-700 border-b-stone-900 drop-shadow-xl shadow-black rounded-full">
         </form>
     </div>

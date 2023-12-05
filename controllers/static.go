@@ -43,7 +43,6 @@ func ContactFormHandler(tpl views.Template, es *models.EmailService, recevingEma
 		emptySpace := []byte("")
 		// HTML sanitizer. TODO: iterate over this instead.
 		sMessage := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("message")), emptySpace))
-		sSubject := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("subject")), emptySpace))
 		sName := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("name")), emptySpace))
 		sPhone := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("phone")), emptySpace))
 
@@ -51,7 +50,7 @@ func ContactFormHandler(tpl views.Template, es *models.EmailService, recevingEma
 
 			To:        recevingEmail,
 			From:      sendingEmail,
-			Subject:   sName + ": " + sSubject,
+			Subject:   sName,
 			PlainText: "Name: " + sName + "\n" + "Email: " + r.FormValue("email") + "\n" + "Phone number: " + sPhone + "\n" + "Message: " + sMessage + "\n",
 			HTML:      `<span>Name: ` + sName + `<br />` + `Email: ` + r.FormValue("email") + `<br />` + `Phone number: ` + sPhone + `<br />` + `Message: ` + `<br />` + sMessage + `<br />` + `</span>`,
 		}
