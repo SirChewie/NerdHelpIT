@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="min-h-screen bg-gradient-to-b md:from-50% from-homewhite to-90% to-stone-800"  lang="en">
-    <head>
+    <head id="head">
         <title>NerdHelpIT</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +8,6 @@
         <link rel="icon" type="image/x-icon" href="/assets/32x32NerdHelpIT.ico">
         <link href="/assets/styles.css" rel="stylesheet">
         <script src="/assets/htmx.min.js"></script>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8JH0WPNV2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-M8JH0WPNV2');
-        </script>
     </head>
 
     <body class="min-h-screen">
@@ -59,11 +50,22 @@
             </div>
         </nav>
         <main>
-            <div class="min-h-screen my-6 mx-6">
+            <div class="min-h-screen">
             <!-- page content -->
             {{template "page" .}}
             <!-- page content stops -->
             </div>
+            <div id="banner" class="flex flex-row gap-6 px-6  justify-evenly  flex-grow fixed bg-stone-600 bg-opacity-80 h-1/6 w-full bottom-0 z-10">
+                <div class="hover:cursor-pointer  h-8  rounded align-middle my-auto bg-stone-800 flex-auto" hx-trigger="click" hx-swap="beforeend" hx-target="#head" hx-get="/analytics"></div>
+                <div class="hover:cursor-pointer h-8  rounded bg-stone-800 my-auto flex-auto" hx-trigger="click" hx-swap="outerHTML" hx-target="#banner" hx-get="/empty"></div>
+            </div>
+            <script>
+                const gac = document.cookie.includes('_ga'||'_gcl');
+                if (gac) {
+                    let banner = document.getElementById("banner");
+                    banner.setAttribute("class", "hidden");
+                }
+            </script>
         </main>
         <footer class="text-center relative bottom-0 right-0 left-0 pt-16 pb-4 leading-6 text-sm text-white bg-stone-800 px-8">
             <ul class="">

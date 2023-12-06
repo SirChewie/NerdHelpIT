@@ -1,82 +1,9 @@
-<!doctype html>
-<html class="min-h-screen" lang="en">
-    <head>
-        <title>NerdHelpIT</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Web development and IT Services">
-        <link rel="icon" type="image/x-icon" href="/assets/32x32NerdHelpIT.ico">
-        <link href="/assets/styles.css" rel="stylesheet">
-        <script src="/assets/htmx.min.js"></script>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8JH0WPNV2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-M8JH0WPNV2');
-        </script>
-    </head>
-    <body class="min-h-screen ">
-        <nav id="nav" class="px-4 md:px-8 md:h-fit h-20 py-2 flex items-center md:flex-grow md:flex-row justify-between md:justify-evenly bg-gradient-to-r to-20% to-neon-blue from-indigo-400 text-white">
-            <div class="flex text-4xl pr-8">
-                <a class="flex flex-row items-center" href="/">
-                    <img src="/assets/NerdHelpITLogo.png" alt="Logo" width="64px" height="58px">
-                    <span class="hidden sm:block flex-auto p-1 align-baseline text-black font-semibold font-serif">NerdHelpIT</span>
-                </a>
-            </div>
-            <div id="stack" class="hover:cursor-pointer md:hidden group/stack" hx-trigger="click" hx-swap="afterend transition:true" hx-target="#nav" hx-get="/nav">
-                <div class="my-1 group-hover/stack:bg-stone-800 bg-black rounded-full w-6 h-1">
-                </div>
-                <div class=" group-hover/stack:bg-stone-800 bg-black rounded-full w-6 h-1">
-                </div>
-                <div class="my-1 group-hover/stack:bg-stone-800 bg-black rounded-full w-6 h-1">
-                </div>
-            </div>
-            <div class="hidden md:flex md:flex-grow min-w-fit text-stone-200 align-middle justify-evenly text-center w-20">
-                <a class="text-lg text-inherit font-semibold" href="/">
-                    <div class="hover:cursor-pointer hover:text-white mb-2">
-                        Home
-                    </div>
-                </a>                    
-                <a class="md:flex text-lg text-inherit font-semibold" href="/about">
-                    <div class="hover:cursor-pointer hover:text-white mb-2">
-                        About
-                    </div>
-                </a>                    
-                <a class="md:flex text-lg text-inherit font-semibold" href="/contact">
-                    <div class="hover:cursor-pointer hover:text-white mb-2">
-                        Contact
-                    </div>
-                </a>
-                <a class="md:flex text-lg text-inherit font-semibold" href="/gallery">
-                    <div class="hover:cursor-pointer hover:text-white mb-2">
-                        Website Gallery
-                    </div>
-                </a>   
-            </div>
-        </nav>
-        <main>
-            <div class="min-h-screen py-6 bg-cover bg-no-repeat bg-center" style="background-image: url('/assets/Glasses_Laptop.png');">
-            <!-- page content -->
-                <div class="min-w-fit w-full max-w-screen">
-                    <h1 class="py-2.5 drop-shadow-md md:z-0 z-10 text-4xl md:text-6xl text-stone-900 font-bold text-center font-serif">NerdHelpIT</h1>
-                    <h2 class=" text-stone-900 md:z-0 z-10 md:text-2xl text-center drop-shadow-sm">Web Development &amp; IT Services</h2>
-                </div>
-                <div class="flex justify-center mt-8  rounded-full  py-1"><a class="hover:scale-125 text-white text-center font-bold bg-stone-800 px-14 border-2 border-stone-800 border-t-stone-700 border-b-stone-900 drop-shadow-xl shadow-black rounded-full" href="/contact">Get a Quote</a></div>
-            <!-- page content stops -->
-            </div>
-        </main>
-        <footer class="text-center relative bottom-0 right-0 left-0 pt-16 pb-4 leading-6 text-sm text-white bg-stone-800 px-8">
-            <ul class="">
-                <li class="h-12 py-3"><a class="px-6 lg:px-2"  href="/">Home</a></li>
-                <li class="h-12 py-3"><a class="px-6 lg:px-2"  href="/about">About</a></li>
-                <li class="h-12 py-3"><a class="px-6 lg:px-2"  href="/contact">Contact</a></li>
-                <li class="h-12 py-3"><a class="px-6 lg:px-2" href="/gallery">Website Gallery</a></li>
-            </ul>
-            <span class="mt-4">Copyright &copy; NerdHelpIT. All rights reserved.</span>
-        </footer>  
-    </body>
-</html>
-
+{{define "page"}}
+<div class="min-h-screen bg-cover py-6 bg-no-repeat bg-center" style="background-image: url('/assets/Glasses_Laptop.png');">
+    <div class="min-w-fit w-full max-w-screen">
+        <h1 class="py-2.5 drop-shadow-md md:z-0 z-10 text-4xl md:text-6xl text-stone-900 font-bold text-center font-serif">NerdHelpIT</h1>
+        <h2 class=" text-stone-900 md:z-0 z-10 md:text-2xl text-center drop-shadow-sm">Web Development &amp; IT Services</h2>
+    </div>
+    <div class="flex justify-center mt-8  rounded-full  py-1"><a class="hover:scale-125 text-white text-center font-bold bg-stone-800 px-14 border-2 border-stone-800 border-t-stone-700 border-b-stone-900 drop-shadow-xl shadow-black rounded-full" href="/contact">Get a Quote</a></div>
+</div>
+{{end}}
