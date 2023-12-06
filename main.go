@@ -47,7 +47,7 @@ func main() {
 	r := chi.NewRouter()
 
 	// Render the layout page then render the content page.
-	tpl, err := views.ParseFS(templates.FS, "home.gohtml")
+	tpl, err := views.ParseFS(templates.FS, "tailwind.gohtml", "home.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
@@ -96,6 +96,20 @@ func main() {
 		return
 	}
 	r.Get("/navClose", controllers.StaticHandler(tpl))
+
+	tpl, err = views.ParseFS(templates.FS, "analytics.gohtml")
+	if err != nil {
+		log.Printf("parsing template: %v", err)
+		return
+	}
+	r.Get("/analytics", controllers.StaticHandler(tpl))
+
+	tpl, err = views.ParseFS(templates.FS, "empty.gohtml")
+	if err != nil {
+		log.Printf("parsing template: %v", err)
+		return
+	}
+	r.Get("/empty", controllers.StaticHandler(tpl))
 
 	assetsHandler := http.FileServer(http.Dir("assets"))
 	r.Get("/assets/*", http.StripPrefix("/assets", assetsHandler).ServeHTTP)
