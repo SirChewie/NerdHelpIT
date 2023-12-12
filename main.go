@@ -69,12 +69,12 @@ func main() {
 	}
 	r.Get("/gallery", controllers.GalleryHandler(tpl))
 
-	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "support.gohtml")
+	tpl, err = views.ParseFS(templates.FS, "cookieSettings.gohtml")
 	if err != nil {
 		log.Printf("parsing template: %v", err)
 		return
 	}
-	r.Get("/support", controllers.StaticHandler(tpl))
+	r.Get("/cookieSettings", controllers.StaticHandler(tpl))
 
 	tpl, err = views.ParseFS(templates.FS, "tailwind.gohtml", "about.gohtml")
 	if err != nil {
