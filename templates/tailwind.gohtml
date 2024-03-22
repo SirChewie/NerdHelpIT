@@ -72,13 +72,13 @@
                         <div class="text-left text-white">We use cookies on this site to enhance your user experience.<br />For a complete overview of all cookies used, please select "Customize" to change your cookie settings.</div>
                     </div>
                     <div class="flex flex-row lg:flex-col gap-6 text-center items-center justify-evenly">
-                        <div class="hover:cursor-pointer flex-grow-0 hover:text-stone-800 hover:bg-stone-400 rounded  max-h-fit w-32 py-2 bg-stone-900 flex-auto" hx-trigger="click" hx-swap="beforeend" hx-target="#head" hx-get="/analytics">Accept</div>
+                        <div class="hover:cursor-pointer flex-grow-0 hover:text-stone-800 hover:bg-stone-400 rounded  max-h-fit w-32 py-2 bg-stone-900 flex-auto" hx-trigger="click" hx-swap="beforeend" hx-target="#head" hx-post="/cookieSettings"  hx-vals='{"analytics": "true"}'>Accept</div>
                         <div class="hover:cursor-pointer flex-grow-0 hover:text-stone-800 hover:bg-stone-400 rounded  max-h-fit w-32 py-2 bg-stone-900 flex-auto" hx-trigger="click" hx-swap="afterbegin" hx-target="#body" hx-get="/cookieSettings">Customize</div>    
                     </div>
                 </div>
             </div>
             <script>
-                const ckys = document.cookie.includes('_ga'||'_gcl');
+                const ckys = document.cookie.includes('analyticsStatus');
                 if (ckys) {
                     let banner = document.getElementById("banner");
                     banner.setAttribute("class", "hidden");

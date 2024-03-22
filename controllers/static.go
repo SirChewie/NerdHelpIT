@@ -1,12 +1,9 @@
 package controllers
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
-	"regexp"
 
-	"github.com/SirChewie/NerdHelpIT/models"
 	"github.com/SirChewie/NerdHelpIT/views"
 )
 
@@ -31,34 +28,4 @@ func GalleryHandler(tpl views.Template) http.HandlerFunc {
 		tpl.Execute(w, sites)
 	}
 
-}
-
-func ContactFormHandler(tpl views.Template, es *models.EmailService, recevingEmail, sendingEmail string) http.HandlerFunc {
-
-	return func(w http.ResponseWriter, r *http.Request) {
-		if r.Method != http.MethodPost {
-			tpl.Execute(w, nil)
-			return
-		}
-		emptySpace := []byte("")
-		// HTML sanitizer. TODO: iterate over this instead.
-		sMessage := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("message")), emptySpace))
-		sName := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("name")), emptySpace))
-		sPhone := string(regexp.MustCompile(`(?i)<[^>]*>`).ReplaceAll([]byte(r.FormValue("phone")), emptySpace))
-
-		email := models.Email{
-
-			To:        recevingEmail,
-			From:      sendingEmail,
-			Subject:   sName,
-			PlainText: "Name: " + sName + "\n" + "Email: " + r.FormValue("email") + "\n" + "Phone number: " + sPhone + "\n" + "Message: " + sMessage + "\n",
-			HTML:      `<span>Name: ` + sName + `<br />` + `Email: ` + r.FormValue("email") + `<br />` + `Phone number: ` + sPhone + `<br />` + `Message: ` + `<br />` + sMessage + `<br />` + `</span>`,
-		}
-		err := es.Send(email)
-		if err != nil {
-			fmt.Printf("error sending email: %v", err)
-			return
-		}
-		tpl.Execute(w, struct{ Success bool }{true})
-	}
 }
