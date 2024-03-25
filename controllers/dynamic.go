@@ -9,6 +9,7 @@ import (
 	"regexp"
 
 	"github.com/SirChewie/NerdHelpIT/models"
+	"github.com/SirChewie/NerdHelpIT/templates"
 	"github.com/SirChewie/NerdHelpIT/views"
 )
 
@@ -51,7 +52,7 @@ func CookieFormHandler(tpl views.Template) http.HandlerFunc {
 		}
 		if r.FormValue("analytics") != "true" {
 			setCookieHandler(w, "false")
-			emptyTpl, err := template.ParseFiles("templates/bannerClose.gohtml")
+			emptyTpl, err := template.ParseFS(templates.FS, "bannerClose.gohtml")
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
@@ -63,7 +64,7 @@ func CookieFormHandler(tpl views.Template) http.HandlerFunc {
 			}
 			return
 		}
-		analyticsTpl, err := template.ParseFiles("templates/analytics.gohtml")
+		analyticsTpl, err := template.ParseFS(templates.FS, "analytics.gohtml")
 		setCookieHandler(w, "true")
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
