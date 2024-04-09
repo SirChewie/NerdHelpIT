@@ -36,7 +36,7 @@ func ContactFormHandler(tpl views.Template, es *models.EmailService, recevingEma
 		}
 		err := es.Send(email)
 		if err != nil {
-			fmt.Printf("error sending email: %v", err)
+			log.Printf("error sending email: %v", err)
 			return
 		}
 		tpl.Execute(w, struct{ Success bool }{true})
